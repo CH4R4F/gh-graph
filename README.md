@@ -20,13 +20,15 @@ This tool is for educational and testing purposes only. Using this to manipulate
 Before running the script, ensure you have the following installed:
 - Node.js (version 12 or higher)
 - npm (Node Package Manager)
+- Git
+- GitHub account
 
 ## 🛠️ Installation
 
 1. Clone this repository:
 ```bash
 git clone <repository-url>
-cd <project-folder>
+cd <repository-folder>
 ```
 
 2. Install the required dependencies:
@@ -61,6 +63,47 @@ You will be prompted to enter the following parameters:
 4. **Avoid Weekends** (yes/no):
    - Option to skip generating commits on Saturdays and Sundays
    - Default: yes
+
+## 📤 Pushing to GitHub
+
+After generating your commit history, follow these steps to push it to GitHub:
+
+1. **Create a New Repository on GitHub**:
+   - Go to [GitHub](https://github.com)
+   - Click the "+" icon in the top-right corner
+   - Select "New repository"
+   - Name your repository
+   - **Important**: Do NOT initialize with README, license, or gitignore files
+   - Click "Create repository"
+
+2. **Copy the Repository URL**:
+   - Copy the URL shown (HTTPS or SSH format)
+   - Example: `https://github.com/username/repository-name.git`
+
+3. **Navigate to Your Generated Directory**:
+```bash
+cd commits-[timestamp]
+```
+
+4. **Add Remote Repository**:
+```bash
+git remote add origin https://github.com/username/repository-name.git
+```
+
+5. **Push Your Commits**:
+```bash
+git push -u origin main
+```
+
+If you're using SSH authentication, use the SSH URL format instead:
+```bash
+git remote add origin git@github.com:username/repository-name.git
+```
+
+**Note**: Make sure you have:
+- Authenticated with GitHub (either via HTTPS credentials or SSH key)
+- Proper write permissions to the repository
+- A stable internet connection for the potentially large push
 
 ## 🔍 How It Works
 
@@ -97,6 +140,18 @@ Common issues and solutions:
    ```
    Solution: Ensure Git is installed and added to your system's PATH
 
+3. **Push Rejected**:
+   ```bash
+   Error: failed to push some refs
+   ```
+   Solution: Make sure your GitHub repository is empty and was created without initialization
+
+4. **Authentication Failed**:
+   ```bash
+   Error: Authentication failed
+   ```
+   Solution: Verify your GitHub credentials or SSH key setup
+
 ## ⚙️ Configuration
 
 The script uses the following default configurations which can be modified in the code:
@@ -109,7 +164,8 @@ The script uses the following default configurations which can be modified in th
 
 - The actual percentage of days with commits might slightly vary from the specified frequency due to random distribution
 - Commits are generated with placeholder content
-- The repository is created locally and needs to be manually pushed to GitHub if desired
+- Large commit histories may take some time to push to GitHub
+- Ensure your repository is private if you don't want the generated commits to be publicly visible
 
 ## 🤝 Contributing
 
