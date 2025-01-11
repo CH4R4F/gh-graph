@@ -104,7 +104,9 @@ async function start() {
       }
     }
 
-    console.log("\nRepository generation completed successfully! ");
+    console.log(
+      "\n\n\nRepository generation completed successfully! \nNow create a new repository on GitHub and push the generated folder to it."
+    );
   } catch (error) {
     console.error("Error:", error.message);
     process.exit(1);
