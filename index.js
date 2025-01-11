@@ -67,6 +67,7 @@ async function start() {
     // initialize the git repository
     await runCommand("git init -b main");
     await runCommand("git config gc.auto 0");
+    await runCommand("git config core.autocrlf input");
 
     // calculate date range
     const startDate = new Date(currentDate);
